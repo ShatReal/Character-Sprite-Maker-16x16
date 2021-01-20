@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes_and_scripts/shaders/Eyes.tres" type="Material" id=1]
+[ext_resource path="res://scenes_and_scripts/shaders/Helms.tres" type="Material" id=2]
+[ext_resource path="res://scenes_and_scripts/shaders/Base.tres" type="Material" id=3]
+[ext_resource path="res://scenes_and_scripts/shaders/Hair Base.tres" type="Material" id=4]
+[ext_resource path="res://scenes_and_scripts/shaders/Outfits.tres" type="Material" id=5]
+[ext_resource path="res://scenes_and_scripts/shaders/Hair Front.tres" type="Material" id=6]
+[ext_resource path="res://scenes_and_scripts/shaders/Hair Back.tres" type="Material" id=7]
+
+[node name="Preview" type="CenterContainer"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Base" type="TextureRect" parent="."]
+material = ExtResource( 3 )
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+expand = true
+
+[node name="Outfits" type="TextureRect" parent="."]
+material = ExtResource( 5 )
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Eyes" type="TextureRect" parent="."]
+material = ExtResource( 1 )
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hair Back" type="TextureRect" parent="."]
+material = ExtResource( 7 )
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hair Base" type="TextureRect" parent="."]
+material = ExtResource( 4 )
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+expand = true
+
+[node name="Hair Front" type="TextureRect" parent="."]
+material = ExtResource( 6 )
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+expand = true
+
+[node name="Helms" type="TextureRect" parent="."]
+material = ExtResource( 2 )
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+expand = true
