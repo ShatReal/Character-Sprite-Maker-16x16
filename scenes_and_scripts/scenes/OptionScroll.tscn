@@ -10,5 +10,5 @@ __meta__ = {
 [node name="GridContainer" type="GridContainer" parent="."]
 use_parent_material = true
 custom_constants/vseparation = 16
-custom_constants/hseparation = 32
+custom_constants/hseparation = 16
 columns = 4

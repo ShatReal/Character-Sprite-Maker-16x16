@@ -1,30 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes_and_scripts/scenes/Preview.tscn" type="PackedScene" id=1]
-[ext_resource path="res://theme/theme.tres" type="Theme" id=2]
-[ext_resource path="res://theme/panel_previews.tres" type="StyleBox" id=3]
-[ext_resource path="res://theme/panel_picker.png" type="Texture" id=4]
-[ext_resource path="res://theme/background.png" type="Texture" id=5]
-
-[sub_resource type="StyleBoxTexture" id=1]
-texture = ExtResource( 4 )
-region_rect = Rect2( 0, 0, 332, 524 )
-expand_margin_left = 12.0
-expand_margin_right = 12.0
-expand_margin_top = 12.0
-expand_margin_bottom = 12.0
-modulate_color = Color( 1, 1, 1, 0.784314 )
-
-[sub_resource type="StyleBoxEmpty" id=2]
-
-[sub_resource type="StyleBoxEmpty" id=3]
-
-[sub_resource type="StyleBoxEmpty" id=4]
-
-[sub_resource type="Theme" id=5]
-Button/styles/hover = SubResource( 2 )
-Button/styles/normal = SubResource( 3 )
-Button/styles/pressed = SubResource( 4 )
+[ext_resource path="res://Themes/Dark.theme" type="Theme" id=2]
+[ext_resource path="res://scenes_and_scripts/scenes/color_picker/ColPicker.gd" type="Script" id=3]
+[ext_resource path="res://sprites/other/background.png" type="Texture" id=5]
 
 [node name="Main" type="CenterContainer"]
 anchor_right = 1.0
@@ -40,68 +19,81 @@ margin_bottom = 600.0
 texture = ExtResource( 5 )
 
 [node name="HBox" type="HBoxContainer" parent="."]
-margin_left = 53.0
-margin_top = 54.0
-margin_right = 971.0
-margin_bottom = 546.0
+margin_left = 57.0
+margin_top = 46.0
+margin_right = 967.0
+margin_bottom = 554.0
 size_flags_vertical = 3
-custom_constants/separation = 32
+custom_constants/separation = 16
 alignment = 1
 
 [node name="ItemDisplay" type="VBoxContainer" parent="HBox"]
-margin_right = 400.0
-margin_bottom = 492.0
+margin_right = 424.0
+margin_bottom = 508.0
 custom_constants/separation = 8
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Options" type="OptionButton" parent="HBox/ItemDisplay"]
-margin_right = 400.0
-margin_bottom = 20.0
+margin_right = 424.0
+margin_bottom = 19.0
 text = "Current Customization Option"
 align = 1
 
 [node name="ItemPanel" type="PanelContainer" parent="HBox/ItemDisplay"]
-margin_top = 28.0
-margin_right = 400.0
-margin_bottom = 408.0
+margin_top = 27.0
+margin_right = 424.0
+margin_bottom = 411.0
 
 [node name="Items" type="MarginContainer" parent="HBox/ItemDisplay/ItemPanel"]
-margin_right = 400.0
-margin_bottom = 380.0
-rect_min_size = Vector2( 400, 380 )
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 422.0
+margin_bottom = 382.0
+rect_min_size = Vector2( 420, 380 )
 custom_constants/margin_right = 12
 custom_constants/margin_top = 16
 custom_constants/margin_left = 16
 custom_constants/margin_bottom = 16
 
 [node name="Remove" type="Button" parent="HBox/ItemDisplay"]
-margin_top = 416.0
-margin_right = 400.0
-margin_bottom = 436.0
+margin_top = 419.0
+margin_right = 424.0
+margin_bottom = 438.0
 text = "Remove All Items"
 
 [node name="Reset" type="Button" parent="HBox/ItemDisplay"]
-margin_top = 444.0
-margin_right = 400.0
-margin_bottom = 464.0
+margin_top = 446.0
+margin_right = 424.0
+margin_bottom = 465.0
 text = "Reset Colors"
 
 [node name="Save" type="Button" parent="HBox/ItemDisplay"]
-margin_top = 472.0
-margin_right = 400.0
+margin_top = 473.0
+margin_right = 424.0
 margin_bottom = 492.0
 text = "Save Image"
 
 [node name="PreviewPanel" type="PanelContainer" parent="HBox"]
-margin_left = 432.0
-margin_right = 496.0
-margin_bottom = 492.0
-custom_styles/panel = ExtResource( 3 )
+margin_left = 440.0
+margin_right = 532.0
+margin_bottom = 508.0
 
-[node name="PreviewBox" type="VBoxContainer" parent="HBox/PreviewPanel"]
-margin_right = 64.0
+[node name="MarginContainer" type="MarginContainer" parent="HBox/PreviewPanel"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 90.0
+margin_bottom = 506.0
+custom_constants/margin_right = 12
+custom_constants/margin_top = 12
+custom_constants/margin_left = 12
+custom_constants/margin_bottom = 12
+
+[node name="PreviewBox" type="VBoxContainer" parent="HBox/PreviewPanel/MarginContainer"]
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 76.0
 margin_bottom = 492.0
 custom_constants/separation = 16
 alignment = 1
@@ -109,103 +101,118 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FrontBox" type="VBoxContainer" parent="HBox/PreviewPanel/PreviewBox"]
-margin_top = 10.0
+[node name="FrontBox" type="VBoxContainer" parent="HBox/PreviewPanel/MarginContainer/PreviewBox"]
 margin_right = 64.0
-margin_bottom = 98.0
+margin_bottom = 92.0
 
-[node name="Label" type="Label" parent="HBox/PreviewPanel/PreviewBox/FrontBox"]
+[node name="Label" type="Label" parent="HBox/PreviewPanel/MarginContainer/PreviewBox/FrontBox"]
+margin_top = -1.0
 margin_right = 64.0
-margin_bottom = 20.0
+margin_bottom = 24.4
 text = "Front"
 align = 1
 
-[node name="Front" parent="HBox/PreviewPanel/PreviewBox/FrontBox" instance=ExtResource( 1 )]
-margin_top = 24.0
+[node name="Front" parent="HBox/PreviewPanel/MarginContainer/PreviewBox/FrontBox" instance=ExtResource( 1 )]
+margin_top = 28.0
 margin_right = 64.0
-margin_bottom = 88.0
+margin_bottom = 92.0
 
-[node name="LeftBox" type="VBoxContainer" parent="HBox/PreviewPanel/PreviewBox"]
-margin_top = 114.0
+[node name="LeftBox" type="VBoxContainer" parent="HBox/PreviewPanel/MarginContainer/PreviewBox"]
+margin_top = 108.0
 margin_right = 64.0
-margin_bottom = 202.0
+margin_bottom = 200.0
 
-[node name="Label" type="Label" parent="HBox/PreviewPanel/PreviewBox/LeftBox"]
+[node name="Label" type="Label" parent="HBox/PreviewPanel/MarginContainer/PreviewBox/LeftBox"]
+margin_top = -1.0
 margin_right = 64.0
-margin_bottom = 20.0
+margin_bottom = 24.4
 text = "Left"
 align = 1
 
-[node name="Left" parent="HBox/PreviewPanel/PreviewBox/LeftBox" instance=ExtResource( 1 )]
-margin_top = 24.0
+[node name="Left" parent="HBox/PreviewPanel/MarginContainer/PreviewBox/LeftBox" instance=ExtResource( 1 )]
+margin_top = 28.0
 margin_right = 64.0
-margin_bottom = 88.0
+margin_bottom = 92.0
 
-[node name="BackBox" type="VBoxContainer" parent="HBox/PreviewPanel/PreviewBox"]
-margin_top = 218.0
+[node name="BackBox" type="VBoxContainer" parent="HBox/PreviewPanel/MarginContainer/PreviewBox"]
+margin_top = 216.0
 margin_right = 64.0
-margin_bottom = 306.0
+margin_bottom = 308.0
 
-[node name="Label" type="Label" parent="HBox/PreviewPanel/PreviewBox/BackBox"]
+[node name="Label" type="Label" parent="HBox/PreviewPanel/MarginContainer/PreviewBox/BackBox"]
+margin_top = -1.0
 margin_right = 64.0
-margin_bottom = 20.0
+margin_bottom = 24.4
 text = "Back"
 align = 1
 
-[node name="Back" parent="HBox/PreviewPanel/PreviewBox/BackBox" instance=ExtResource( 1 )]
-margin_top = 24.0
+[node name="Back" parent="HBox/PreviewPanel/MarginContainer/PreviewBox/BackBox" instance=ExtResource( 1 )]
+margin_top = 28.0
 margin_right = 64.0
-margin_bottom = 88.0
+margin_bottom = 92.0
 
-[node name="RightBox" type="VBoxContainer" parent="HBox/PreviewPanel/PreviewBox"]
-margin_top = 322.0
+[node name="RightBox" type="VBoxContainer" parent="HBox/PreviewPanel/MarginContainer/PreviewBox"]
+margin_top = 324.0
 margin_right = 64.0
-margin_bottom = 410.0
+margin_bottom = 416.0
 
-[node name="Label" type="Label" parent="HBox/PreviewPanel/PreviewBox/RightBox"]
+[node name="Label" type="Label" parent="HBox/PreviewPanel/MarginContainer/PreviewBox/RightBox"]
+margin_top = -1.0
 margin_right = 64.0
-margin_bottom = 20.0
+margin_bottom = 24.4
 text = "Right"
 align = 1
 
-[node name="Right" parent="HBox/PreviewPanel/PreviewBox/RightBox" instance=ExtResource( 1 )]
-margin_top = 24.0
+[node name="Right" parent="HBox/PreviewPanel/MarginContainer/PreviewBox/RightBox" instance=ExtResource( 1 )]
+margin_top = 28.0
 margin_right = 64.0
-margin_bottom = 88.0
+margin_bottom = 92.0
 
-[node name="Flipped" type="VBoxContainer" parent="HBox/PreviewPanel/PreviewBox"]
-margin_top = 426.0
+[node name="Flipped" type="VBoxContainer" parent="HBox/PreviewPanel/MarginContainer/PreviewBox"]
+margin_top = 432.0
 margin_right = 64.0
-margin_bottom = 482.0
+margin_bottom = 480.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="HBox/PreviewPanel/PreviewBox/Flipped"]
+[node name="Label" type="Label" parent="HBox/PreviewPanel/MarginContainer/PreviewBox/Flipped"]
+margin_top = -1.0
 margin_right = 64.0
-margin_bottom = 20.0
+margin_bottom = 24.4
 text = "Flipped"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Switch" type="CheckButton" parent="HBox/PreviewPanel/PreviewBox/Flipped"]
-margin_top = 24.0
+[node name="Switch" type="CheckButton" parent="HBox/PreviewPanel/MarginContainer/PreviewBox/Flipped"]
+margin_top = 28.0
 margin_right = 64.0
-margin_bottom = 56.0
+margin_bottom = 48.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ColorPanel" type="PanelContainer" parent="HBox"]
-margin_left = 528.0
-margin_right = 592.0
-margin_bottom = 492.0
-custom_styles/panel = ExtResource( 3 )
+margin_left = 548.0
+margin_right = 640.0
+margin_bottom = 508.0
 
-[node name="ColorBox" type="VBoxContainer" parent="HBox/ColorPanel"]
-margin_right = 64.0
+[node name="MarginContainer" type="MarginContainer" parent="HBox/ColorPanel"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 90.0
+margin_bottom = 506.0
+custom_constants/margin_right = 12
+custom_constants/margin_top = 12
+custom_constants/margin_left = 12
+custom_constants/margin_bottom = 12
+
+[node name="ColorBox" type="VBoxContainer" parent="HBox/ColorPanel/MarginContainer"]
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 76.0
 margin_bottom = 492.0
 custom_constants/separation = 16
 alignment = 1
@@ -213,90 +220,103 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Box0" type="VBoxContainer" parent="HBox/ColorPanel/ColorBox"]
-margin_top = 94.0
+[node name="Box0" type="VBoxContainer" parent="HBox/ColorPanel/MarginContainer/ColorBox"]
+margin_top = 80.0
 margin_right = 64.0
-margin_bottom = 182.0
+margin_bottom = 172.0
 
-[node name="Label" type="Label" parent="HBox/ColorPanel/ColorBox/Box0"]
+[node name="Label" type="Label" parent="HBox/ColorPanel/MarginContainer/ColorBox/Box0"]
+margin_top = -1.0
 margin_right = 64.0
-margin_bottom = 20.0
+margin_bottom = 24.4
 text = "Color 1"
 
-[node name="ColorRect" type="ColorRect" parent="HBox/ColorPanel/ColorBox/Box0"]
-margin_top = 24.0
+[node name="ColorRect" type="ColorRect" parent="HBox/ColorPanel/MarginContainer/ColorBox/Box0"]
+margin_top = 28.0
 margin_right = 64.0
-margin_bottom = 88.0
+margin_bottom = 92.0
 rect_min_size = Vector2( 64, 64 )
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="Box1" type="VBoxContainer" parent="HBox/ColorPanel/ColorBox"]
-margin_top = 198.0
+[node name="Box1" type="VBoxContainer" parent="HBox/ColorPanel/MarginContainer/ColorBox"]
+margin_top = 188.0
 margin_right = 64.0
-margin_bottom = 254.0
+margin_bottom = 248.0
 
-[node name="Label" type="Label" parent="HBox/ColorPanel/ColorBox/Box1"]
+[node name="Label" type="Label" parent="HBox/ColorPanel/MarginContainer/ColorBox/Box1"]
+margin_top = -1.0
 margin_right = 64.0
-margin_bottom = 20.0
+margin_bottom = 24.4
 text = "Color 2"
 
-[node name="ColorRect" type="ColorRect" parent="HBox/ColorPanel/ColorBox/Box1"]
-margin_top = 24.0
+[node name="ColorRect" type="ColorRect" parent="HBox/ColorPanel/MarginContainer/ColorBox/Box1"]
+margin_top = 28.0
 margin_right = 32.0
-margin_bottom = 56.0
+margin_bottom = 60.0
 rect_min_size = Vector2( 32, 32 )
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="Box2" type="VBoxContainer" parent="HBox/ColorPanel/ColorBox"]
-margin_top = 270.0
+[node name="Box2" type="VBoxContainer" parent="HBox/ColorPanel/MarginContainer/ColorBox"]
+margin_top = 264.0
 margin_right = 64.0
-margin_bottom = 326.0
+margin_bottom = 324.0
 
-[node name="Label" type="Label" parent="HBox/ColorPanel/ColorBox/Box2"]
+[node name="Label" type="Label" parent="HBox/ColorPanel/MarginContainer/ColorBox/Box2"]
+margin_top = -1.0
 margin_right = 64.0
-margin_bottom = 20.0
+margin_bottom = 24.4
 text = "Color 3"
 
-[node name="ColorRect" type="ColorRect" parent="HBox/ColorPanel/ColorBox/Box2"]
-margin_top = 24.0
+[node name="ColorRect" type="ColorRect" parent="HBox/ColorPanel/MarginContainer/ColorBox/Box2"]
+margin_top = 28.0
 margin_right = 32.0
-margin_bottom = 56.0
+margin_bottom = 60.0
 rect_min_size = Vector2( 32, 32 )
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="Box3" type="VBoxContainer" parent="HBox/ColorPanel/ColorBox"]
-margin_top = 342.0
+[node name="Box3" type="VBoxContainer" parent="HBox/ColorPanel/MarginContainer/ColorBox"]
+margin_top = 340.0
 margin_right = 64.0
-margin_bottom = 398.0
+margin_bottom = 400.0
 
-[node name="Label" type="Label" parent="HBox/ColorPanel/ColorBox/Box3"]
+[node name="Label" type="Label" parent="HBox/ColorPanel/MarginContainer/ColorBox/Box3"]
+margin_top = -1.0
 margin_right = 64.0
-margin_bottom = 20.0
+margin_bottom = 24.4
 text = "Color 4"
 
-[node name="ColorRect" type="ColorRect" parent="HBox/ColorPanel/ColorBox/Box3"]
-margin_top = 24.0
+[node name="ColorRect" type="ColorRect" parent="HBox/ColorPanel/MarginContainer/ColorBox/Box3"]
+margin_top = 28.0
 margin_right = 32.0
-margin_bottom = 56.0
+margin_bottom = 60.0
 rect_min_size = Vector2( 32, 32 )
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
 [node name="PickerPanel" type="PanelContainer" parent="HBox"]
-margin_left = 624.0
-margin_right = 918.0
-margin_bottom = 492.0
-custom_styles/panel = SubResource( 1 )
+margin_left = 656.0
+margin_right = 910.0
+margin_bottom = 508.0
 
-[node name="ColorPicker" type="ColorPicker" parent="HBox/PickerPanel"]
-margin_top = 30.0
-margin_right = 294.0
-margin_bottom = 462.0
-size_flags_vertical = 4
-theme = SubResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="MarginContainer" type="MarginContainer" parent="HBox/PickerPanel"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 252.0
+margin_bottom = 506.0
+custom_constants/margin_right = 12
+custom_constants/margin_top = 12
+custom_constants/margin_left = 12
+custom_constants/margin_bottom = 12
+
+[node name="ColPicker" type="ColorPicker" parent="HBox/PickerPanel/MarginContainer"]
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 238.0
+margin_bottom = 492.0
+hsv_mode = true
+presets_enabled = false
+presets_visible = false
+script = ExtResource( 3 )

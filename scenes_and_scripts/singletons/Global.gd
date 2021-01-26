@@ -1,6 +1,7 @@
 extends Node
 
 # Node variables, initialized in _ready
+var main
 var options
 var items
 var remove
@@ -43,16 +44,16 @@ var cur_option = 0
 var flips = [false, false, false, false, false, false, false]
 
 func _ready():
-	var main = $"/root/Main"
+	main = $"/root/Main"
 	options = main.get_node("HBox/ItemDisplay/Options")
 	items = main.get_node("HBox/ItemDisplay/ItemPanel/Items")
 	remove = main.get_node("HBox/ItemDisplay/Remove")
 	reset = main.get_node("HBox/ItemDisplay/Reset")
 	save = main.get_node("HBox/ItemDisplay/Save")
-	prev_box = main.get_node("HBox/PreviewPanel/PreviewBox")
-	flip_switch = main.get_node("HBox/PreviewPanel/PreviewBox/Flipped/Switch")
-	color_box = main.get_node("HBox/ColorPanel/ColorBox")
-	color_picker = main.get_node("HBox/PickerPanel/ColorPicker")
+	prev_box = main.get_node("HBox/PreviewPanel/MarginContainer/PreviewBox")
+	flip_switch = main.get_node("HBox/PreviewPanel/MarginContainer/PreviewBox/Flipped/Switch")
+	color_box = main.get_node("HBox/ColorPanel/MarginContainer/ColorBox")
+	color_picker = main.get_node("HBox/PickerPanel/MarginContainer/ColPicker")
 
 	main.connect("ready", self, "set_up_main")
 	
@@ -145,7 +146,7 @@ func set_up_main():
 		color_rects.append(rect)
 	
 	color_picker.connect("color_changed", self, "on_color_changed")
-
+	
 	add_keys()
 	set_default_colors()
 	
