@@ -25,6 +25,7 @@ run/main_scene="res://scenes_and_scripts/scenes/Main.tscn"
 boot_splash/image="res://sprites/other/loading.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://sprites/other/icon.png"
+config/windows_native_icon="res://sprites/other/icon.ico"
 
 [autoload]
 

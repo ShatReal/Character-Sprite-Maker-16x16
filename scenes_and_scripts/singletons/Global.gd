@@ -121,7 +121,12 @@ func set_up_main():
 	options.connect("item_selected", self, "change_option")
 	remove.connect("pressed", self, "remove_all_items")
 	reset.connect("pressed", self, "set_default_colors")
-	save.connect("pressed", $"/root/Save", "save_image")
+	if OS.get_name() == "HTML5" and OS.has_feature('JavaScript'):
+		save.connect("pressed", $"/root/Save", "save_image")
+	else:
+		var file_dialog = main.get_node("FileDialog")
+		save.connect("pressed", file_dialog, "popup_centered")
+		file_dialog.connect("file_selected", $"/root/Save", "save_image")
 	
 	load_images()
 	

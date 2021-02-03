@@ -88,7 +88,7 @@ func draw_img(result_img):
 									result_img.set_pixel(IMAGE_SIZE*k + x, IMAGE_SIZE*i + y, mtrl_replace_colors[j][outer_index][inner_index])
 					img.unlock()
 
-func save_image():
+func save_image(path=null):
 	var result_img = Image.new()
 	result_img.create(IMAGE_SIZE*4, IMAGE_SIZE*4, false, Image.FORMAT_RGBA8)
 	result_img.lock()
@@ -98,11 +98,10 @@ func save_image():
 	draw_img(result_img)
 	result_img.unlock()
 	
-	# Will save image instead of downloading it
-	if OS.get_name() == "HTML5" and OS.has_feature('JavaScript'):
-		HTML5File.save_image(result_img, "character_sprite_sheet")
+	if path:
+		result_img.save_png(path)
 	else:
-		result_img.save_png("res://test.png")
+		HTML5File.save_image(result_img, "character_sprite_sheet")
 	
 	paths = []
 	images = []

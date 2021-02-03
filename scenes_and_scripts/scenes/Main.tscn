@@ -320,3 +320,14 @@ hsv_mode = true
 presets_enabled = false
 presets_visible = false
 script = ExtResource( 3 )
+
+[node name="FileDialog" type="FileDialog" parent="."]
+margin_left = 212.0
+margin_top = 99.0
+margin_right = 812.0
+margin_bottom = 499.0
+rect_min_size = Vector2( 600, 400 )
+access = 2
+filters = PoolStringArray( "*.png" )
+current_dir = "/Users/falli/OneDrive/Documents/My Documents/My Godot/Character-Sprite-Maker-16x16"
+current_path = "/Users/falli/OneDrive/Documents/My Documents/My Godot/Character-Sprite-Maker-16x16/"
