@@ -9,4 +9,3 @@ Credits:
 - Thumbnail created with Krita
 - [GUI](https://mounirtohami.itch.io/godot-dark-theme) by [Mounir Tohami](https://itch.io/profile/mounirtohami)
 - [Background](https://s4m-ur4i.itch.io/pixelart-clouds-background) by [Sam](https://itch.io/profile/s4m-ur4i)
-- Font is [Silver](https://poppyworks.itch.io/silver) by [Poppy Works](https://poppyworks.itch.io/)
