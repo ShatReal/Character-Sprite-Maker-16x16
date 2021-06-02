@@ -1,0 +1,237 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://sprites/characters/adult_female/head_1.png" type="Texture" id=1]
+[ext_resource path="res://theme/theme.tres" type="Theme" id=2]
+[ext_resource path="res://scenes/main.gd" type="Script" id=3]
+[ext_resource path="res://sprites/characters/adult_female/body_1.png" type="Texture" id=4]
+[ext_resource path="res://scenes/shader.tres" type="Material" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+content_margin_left = 2.0
+content_margin_right = 2.0
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.298039, 0.407843, 0.521569, 1 )
+
+[node name="Main" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 2 )
+custom_constants/margin_right = 4
+custom_constants/margin_top = 4
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 4
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="HBox" type="HBoxContainer" parent="."]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 956.0
+margin_bottom = 536.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="HBox"]
+margin_right = 237.0
+margin_bottom = 532.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Genders" type="OptionButton" parent="HBox/VBox"]
+margin_right = 237.0
+margin_bottom = 30.0
+mouse_default_cursor_shape = 2
+text = "Gender"
+
+[node name="Ages" type="OptionButton" parent="HBox/VBox"]
+margin_top = 34.0
+margin_right = 237.0
+margin_bottom = 64.0
+mouse_default_cursor_shape = 2
+text = "Age"
+
+[node name="Options" type="OptionButton" parent="HBox/VBox"]
+margin_top = 68.0
+margin_right = 237.0
+margin_bottom = 98.0
+mouse_default_cursor_shape = 2
+text = "Options"
+
+[node name="GridPanel" type="PanelContainer" parent="HBox/VBox"]
+margin_top = 102.0
+margin_right = 237.0
+margin_bottom = 464.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBox/VBox/GridPanel"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 229.0
+margin_bottom = 354.0
+custom_styles/bg = SubResource( 2 )
+
+[node name="Grid" type="GridContainer" parent="HBox/VBox/GridPanel/ScrollContainer"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 219.0
+margin_bottom = 344.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 3
+
+[node name="Save" type="Button" parent="HBox/VBox"]
+margin_top = 468.0
+margin_right = 237.0
+margin_bottom = 498.0
+text = "Save"
+
+[node name="Credits" type="Button" parent="HBox/VBox"]
+margin_top = 502.0
+margin_right = 237.0
+margin_bottom = 532.0
+text = "Credits"
+
+[node name="VBox2" type="VBoxContainer" parent="HBox"]
+margin_left = 241.0
+margin_right = 952.0
+margin_bottom = 532.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="HBox" type="HBoxContainer" parent="HBox/VBox2"]
+margin_right = 711.0
+margin_bottom = 132.0
+size_flags_vertical = 3
+
+[node name="Skin" type="PanelContainer" parent="HBox/VBox2/HBox"]
+margin_right = 353.0
+margin_bottom = 132.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="HBox/VBox2/HBox/Skin"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 345.0
+margin_bottom = 124.0
+
+[node name="Label" type="Label" parent="HBox/VBox2/HBox/Skin/VBox"]
+margin_right = 337.0
+margin_bottom = 26.0
+text = "Skin Color"
+
+[node name="Grid" type="GridContainer" parent="HBox/VBox2/HBox/Skin/VBox"]
+margin_top = 30.0
+margin_right = 337.0
+margin_bottom = 116.0
+size_flags_vertical = 3
+columns = 8
+
+[node name="Hair" type="PanelContainer" parent="HBox/VBox2/HBox"]
+margin_left = 357.0
+margin_right = 711.0
+margin_bottom = 132.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="HBox/VBox2/HBox/Hair"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 346.0
+margin_bottom = 124.0
+
+[node name="Label" type="Label" parent="HBox/VBox2/HBox/Hair/VBox"]
+margin_right = 338.0
+margin_bottom = 26.0
+text = "Hair Color"
+
+[node name="Grid" type="GridContainer" parent="HBox/VBox2/HBox/Hair/VBox"]
+margin_top = 30.0
+margin_right = 338.0
+margin_bottom = 116.0
+size_flags_vertical = 3
+columns = 8
+
+[node name="SpritePanel" type="PanelContainer" parent="HBox/VBox2"]
+margin_top = 136.0
+margin_right = 711.0
+margin_bottom = 532.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="HBox/VBox2/SpritePanel"]
+margin_right = 711.0
+margin_bottom = 396.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Sprites" type="Control" parent="HBox/VBox2/SpritePanel/CenterContainer"]
+margin_left = 355.0
+margin_top = 198.0
+margin_right = 355.0
+margin_bottom = 198.0
+
+[node name="Body" type="Sprite" parent="HBox/VBox2/SpritePanel/CenterContainer/Sprites"]
+material = ExtResource( 5 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 4 )
+offset = Vector2( 0, -8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Head" type="Sprite" parent="HBox/VBox2/SpritePanel/CenterContainer/Sprites"]
+material = ExtResource( 5 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, -8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BodySmall" type="Sprite" parent="HBox/VBox2/SpritePanel"]
+material = ExtResource( 5 )
+texture = ExtResource( 4 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="HeadSmall" type="Sprite" parent="HBox/VBox2/SpritePanel"]
+material = ExtResource( 5 )
+texture = ExtResource( 1 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Node" type="Node" parent="."]
+
+[node name="FileDialog" type="FileDialog" parent="Node"]
+margin_right = 720.0
+margin_bottom = 405.0
+rect_min_size = Vector2( 720, 405 )
+access = 2
+filters = PoolStringArray( "*.png" )
+current_dir = "/game_development/projects/p_sprite_gen"
+current_path = "/game_development/projects/p_sprite_gen/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="item_selected" from="HBox/VBox/Genders" to="." method="_on_option_selected" binds= [ "_cur_gender" ]]
+[connection signal="item_selected" from="HBox/VBox/Ages" to="." method="_on_option_selected" binds= [ "_cur_age" ]]
+[connection signal="item_selected" from="HBox/VBox/Options" to="." method="_on_option_selected" binds= [ "_cur_option" ]]
+[connection signal="pressed" from="HBox/VBox/Save" to="." method="_on_save_pressed"]
+[connection signal="file_selected" from="Node/FileDialog" to="." method="_on_file_selected"]

@@ -1,11 +1,11 @@
-# Character-Sprite-Maker-16x16
-Source code for https://emily2.itch.io/character-sprite-maker-16x16
+# Pokémon FRLG Overworld Sprite Creator
+
+Source code for https://emily2.itch.io/frlg
+
+**Note:** The license is for the code, not the artwork. I can't give away the rights to the artwork since I didn't make it.
 
 Credits:
 
-- Made with Godot 3.2.3
+- Art from Pokémon FireRed / LeafGreen (obviously)
+- Made with [Godot](https://godotengine.org/) 3.3.2
 - HTML5 Javascript image download plugin by laame [here](https://github.com/Pukkah/HTML5-File-Exchange-for-Godot)
-- Pixel art created with Aseprite
-- Thumbnail created with Krita
-- [GUI](https://mounirtohami.itch.io/godot-dark-theme) by [Mounir Tohami](https://itch.io/profile/mounirtohami)
-- [Background](https://s4m-ur4i.itch.io/pixelart-clouds-background) by [Sam](https://itch.io/profile/s4m-ur4i)
