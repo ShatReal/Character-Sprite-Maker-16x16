@@ -12,7 +12,6 @@ config_version=4
 
 config/name="Pokémon FRLG Overworld Sprite Generator"
 run/main_scene="res://scenes/main.tscn"
-boot_splash/bg_color=Color( 0.309804, 0.643137, 0.721569, 1 )
 
 [debug]
 
@@ -22,6 +21,8 @@ gdscript/warnings/return_value_discarded=false
 
 window/size/width=960
 window/size/height=540
+window/stretch/mode="2d"
+window/stretch/aspect="expand"
 
 [editor_plugins]
 
@@ -55,5 +56,4 @@ texture={
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
-environment/default_clear_color=Color( 0.309804, 0.643137, 0.721569, 1 )
 environment/default_environment="res://default_env.tres"

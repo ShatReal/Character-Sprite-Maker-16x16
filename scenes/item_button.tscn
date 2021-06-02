@@ -7,6 +7,7 @@ margin_right = 64.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 64, 80 )
 mouse_default_cursor_shape = 2
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
