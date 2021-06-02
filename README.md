@@ -9,3 +9,4 @@ Credits:
 - Art from Pokémon FireRed / LeafGreen (obviously)
 - Made with [Godot](https://godotengine.org/) 3.3.2
 - HTML5 Javascript image download plugin by laame [here](https://github.com/Pukkah/HTML5-File-Exchange-for-Godot)
+- [m5x7 by Daniel Lissen](https://managore.itch.io/m5x7)
